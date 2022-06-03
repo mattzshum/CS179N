@@ -124,3 +124,13 @@ func get_descendants(n):
 	for ch in n.get_children():
 		c.append_array(get_descendants(ch))
 	return c
+
+# MATT - THE FOLLOWING CODE SHOULD IMPLEMENT CHANGES TO FULLSCREEN, RESOLUTION
+func update_settings(settings: Dictionary) -> void:
+	OS.window_fullscreen = settings.fullscreen
+	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, settings.resolution)
+	OS.set_window_size(settings.resolution)
+	OS.vsync_enabled = settings.vsync
+
+func _on_UIVideoSettings_apply_button_pressed(settings) -> void:
+	update_settings(settings)
