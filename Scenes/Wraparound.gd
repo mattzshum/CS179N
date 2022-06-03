@@ -56,6 +56,7 @@ func get_descendants(n):
 		c.append_array(get_descendants(ch))
 	return c
 
+# MATT - THE FOLLOWING CODE SHOULD IMPLEMENT CHANGES TO FULLSCREEN, RESOLUTION
 func update_settings(settings: Dictionary) -> void:
 	OS.window_fullscreen = settings.fullscreen
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, settings.resolution)
